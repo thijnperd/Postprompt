@@ -15,15 +15,15 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Setup Node.js
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v5
       with:
         node-version: '20'
-        package-manager: 'pnpm'
         cache: 'pnpm'
 
     - name: Install dependencies
       run: |
         corepack enable
+        corepack prepare pnpm@latest --activate
         pnpm install
 
     - name: Build
